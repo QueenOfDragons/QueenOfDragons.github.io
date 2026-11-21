@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9614a" />
+  <title>Gestione spese</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23a9614a'/><text x='16' y='22' font-size='17' text-anchor='middle' fill='white' font-family='Georgia'>€</text></svg>" />
+  <link rel="stylesheet" href="../../comune.css" />
+  <link rel="stylesheet" href="spese.css" />
+</head>
+<body>
+  <div id="app" class="guscio"></div>
+  <div id="finestra"></div>
+  <div id="stampa" class="solo-stampa"></div>
+  <input id="file-ripristino" class="nascosto" type="file" accept=".json,application/json" />
+  <input id="file-xml" class="nascosto" type="file" multiple accept=".xml,.p7m,.zip,application/xml,text/xml,application/zip" />
+  <script src="../../demo/dati-demo.js"></script>
+  <script src="../../demo/motore.js" data-radice="../../"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+.casa { width: min(1180px, 100%); margin: 0 auto; padding: 44px 28px 30px; }
+.testata { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+.testata h1 { font-size: 46px; }
+.sottotitolo { margin: 8px 0 0; color: var(--inchiostro-tenue); font-size: 18px; }
+.riquadri { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.riquadro { position: relative; display: flex; flex-direction: column; gap: 14px; min-height: 260px; padding: 26px; border: 1px solid var(--linea); border-radius: 22px; background: var(--carta); box-shadow: var(--ombra); color: inherit; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+a.riquadro:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(36, 54, 59, .1); }
+.riquadro .icona { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 16px; font-size: 26px; font-family: Georgia, serif; }
+.riquadro h2 { font-size: 27px; }
+.riquadro p { margin: 0; color: var(--inchiostro-tenue); }
+.riquadro .numeri { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: auto; }
+.riquadro .numeri div { padding: 10px 12px; border-radius: 12px; background: var(--sfondo); }
+.riquadro .numeri b { display: block; font-size: 22px; font-family: Georgia, serif; }
+.riquadro .numeri span { font-size: 13px; color: var(--inchiostro-tenue); }
+.riquadro.in-arrivo { opacity: .78; border-style: dashed; box-shadow: none; }
+.riquadro .stato { position: absolute; top: 22px; right: 22px; }
+.riquadro .vai { margin-top: auto; font-weight: 700; color: var(--salvia); }
+.colore-salvia .icona { color: var(--salvia-scuro); background: var(--salvia-tenue); }
+.colore-terracotta .icona { color: #8d4a35; background: var(--terracotta-tenue); }
+.colore-lavanda .icona { color: #564d83; background: var(--lavanda-tenue); }
+.colore-cielo .icona { color: #2f5f86; background: var(--cielo-tenue); }
+.info-cellulare { margin-top: 26px; }
+.info-cellulare h3 { font-size: 21px; margin-bottom: 8px; }
+.info-cellulare p { margin: 6px 0; color: var(--inchiostro-tenue); }
+.info-cellulare code { padding: 2px 6px; border-radius: 6px; background: var(--sfondo); font-size: 15px; }
+.piede { margin-top: 26px; text-align: center; color: var(--inchiostro-tenue); font-size: 14px; }
+@media (max-width: 600px) { .casa { padding: 24px 14px; } .testata h1 { font-size: 36px; } .riquadri { grid-template-columns: 1fr; } }
+
+/* ---------------- Agenda del mese con i foglietti */
+.agenda-casa { margin-top: 26px; }
+.agenda-testa { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.agenda-testa h2 { font-size: 28px; text-transform: capitalize; }
+.agenda-testa .comandi { display: flex; gap: 8px; flex-wrap: wrap; }
+.legenda { display: flex; flex-wrap: wrap; gap: 14px 18px; margin: 0 0 14px; font-size: 13px; color: var(--inchiostro-tenue); }
+.legenda span { display: inline-flex; align-items: center; gap: 6px; }
+.legenda i { width: 16px; height: 14px; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.legenda b { width: 14px; height: 5px; border-radius: 2px; }
+.legenda .titolo-legenda { font-weight: 700; color: var(--inchiostro); }
+.mese-casa { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.mese-casa .nome-giorno { padding: 2px 4px; font-size: 13px; font-weight: 700; color: var(--inchiostro-tenue); text-align: center; }
+.cella { display: flex; flex-direction: column; gap: 5px; min-height: 118px; padding: 6px; border: 1px solid transparent; border-radius: 12px; background: var(--sfondo); text-align: left; }
+.cella:hover { border-color: var(--linea); }
+.cella.fuori { opacity: .4; }
+.cella.oggi { border: 2px solid var(--salvia); }
+.cella.scelta { background: #e9e4d8; }
+.cella > b { font-size: 13px; }
+.cella small { font-size: 12px; font-weight: 700; color: var(--inchiostro-tenue); }
+.postit { position: relative; display: block; width: 100%; padding: 9px 7px 6px; border: 0; border-radius: 2px 2px 8px 2px; font-size: 12px; line-height: 1.25; text-align: left; color: #2b3437; text-decoration: none; box-shadow: 0 2px 4px rgba(36, 54, 59, .16); overflow: hidden; }
+.postit:nth-of-type(odd) { transform: rotate(-1.2deg); }
+.postit:nth-of-type(even) { transform: rotate(1deg); }
+.postit:hover { transform: rotate(0) scale(1.03); z-index: 2; box-shadow: 0 6px 12px rgba(36, 54, 59, .2); }
+.postit::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--nastro, var(--salvia)); }
+.postit .riga1 { display: block; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.postit.fatto { opacity: .55; }
+.postit.fatto .riga1 { text-decoration: line-through; }
+.tipo-colloquio { background: #c9e0f5; }
+.tipo-scadenza { background: #f6cbbd; }
+.tipo-sollecito { background: #f5e29a; }
+.tipo-promemoria { background: #dad1f2; }
+.tipo-prossima { background: #c9e7d1; }
+.tipo-altro { background: #e8dfcc; }
+.tipo-pagamento { background: #f3d2a8; }
+.tipo-incasso { background: #c4e4df; }
+.tipo-disdetta { background: #e9c6d6; }
+.tipo-visita { background: #f2b8c6; }
+.tipo-cura { background: #e3cdf2; }
+.tipo-controllo { background: #cbd8e2; }
+.tipo-farmaco { background: #d6eaa8; }
+.tipo-studio { background: #a9dfe8; }
+.contesto-salvia { --nastro: var(--salvia); }
+.contesto-terracotta { --nastro: var(--terracotta); }
+.contesto-lavanda { --nastro: var(--lavanda); }
+.contesto-cielo { --nastro: var(--cielo); }
+.giorno-scelto { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--linea-tenue); }
+.giorno-scelto h3 { font-size: 21px; margin-bottom: 12px; text-transform: capitalize; }
+.foglietti { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.foglietti .postit { min-height: 120px; padding: 16px 14px 12px; font-size: 14px; text-decoration: none; }
+.foglietti .postit .riga1 { white-space: normal; font-size: 15px; margin-bottom: 4px; }
+.foglietti .postit .ora { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .75; }
+.foglietti .postit .contesto { position: absolute; right: 10px; bottom: 8px; font-size: 11px; font-weight: 700; opacity: .7; }
+.foglietti .postit p { margin: 4px 0 18px; color: #4b585b; }
+.nessuno { color: var(--inchiostro-tenue); margin: 0; }
+@media (max-width: 760px) {
+  .cella { min-height: 58px; padding: 4px; }
+  .cella .postit, .cella small { display: none; }
+  .cella .puntini { display: flex; gap: 3px; flex-wrap: wrap; }
+  .cella .puntini i { width: 8px; height: 8px; border-radius: 50%; }
+  .agenda-testa h2 { font-size: 23px; }
+}
+@media (min-width: 761px) { .cella .puntini { display: none; } }
+
+/* Etichetta del cassetto sui foglietti delle spese (Società, Ditta, Personale) */
+.sigla { display: inline-block; margin-right: 4px; padding: 0 5px; border-radius: 4px; font-size: 10px; font-weight: 700; line-height: 15px; letter-spacing: .02em; text-transform: uppercase; vertical-align: 1px; color: #fff; }
+.legenda .sigla { width: auto; height: auto; }
+.sigla-cielo { background: var(--cielo); }
+.sigla-salvia { background: var(--salvia); }
+.sigla-lavanda { background: var(--lavanda); }
+.sigla-grigio { background: #7c8789; }
+.foglietti .postit .ora .sigla { font-size: 11px; line-height: 17px; }
