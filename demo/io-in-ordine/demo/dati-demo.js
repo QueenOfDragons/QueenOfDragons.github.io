@@ -32,7 +32,7 @@ window.creaDatiDemo = function ({ oggi, iso, piuGiorni }) {
     { id: 3, tipologia: "estero", titolo: "Statistical programmer (remote)", azienda: "Brezza Clinical Research GmbH", contatto: "Talent team", paese: "Germania", citta: "Monaco di Baviera",
       modalita: "remoto", lingue: "inglese", compenso: "", contratto: "freelance", stato: "inviata", conferma: "confermato", canale: "sito dell'azienda",
       link: "https://www.example.com/careers/statistical-programmer", data_invio: g(-12), fatti: "Ricevuta la mail automatica di conferma.", cv_usato: "CV_Elena_Rossi_EN.pdf", aggiornato: ieri(12) },
-    { id: 4, tipologia: "docenza", titolo: "Docente del corso \"Analisi dei dati per le imprese\"", azienda: "Accademia Mareblu", contatto: "Segreteria didattica", paese: "Italia", citta: "Pisa",
+    { id: 4, tipologia: "docenza", titolo: "Docente del corso \"Analisi dei dati per le imprese\"", azienda: "Accademia Mareblu", contatto: "Segreteria didattica", paese: "Italia", citta: "Bologna",
       modalita: "ibrido", compenso: "45 € l'ora", contratto: "incarico di docenza", stato: "contatto", conferma: "risposta", canale: "passaparola", data_invio: g(-9),
       prossima_azione: "Mandare il programma del corso", prossima_data: g(1), fatti: "Interessati a 40 ore di lezione in primavera.", valutazione: "Bello e vicino a casa.", aggiornato: ieri(3) },
     { id: 5, tipologia: "recruiter", titolo: "BI developer", azienda: "Quarzo Consulting (tramite recruiter)", contatto: "Luca, recruiter (nome di fantasia)", paese: "Italia", citta: "Bologna",
@@ -53,9 +53,9 @@ window.creaDatiDemo = function ({ oggi, iso, piuGiorni }) {
       data_invio: g(-70), esito: "Cercano un profilo più giovane di esperienza.", data_chiusura: g(-24), fatti: "Colloquio fatto, poi risposta negativa per e-mail.", aggiornato: ieri(24) },
     { id: 12, tipologia: "candidatura", titolo: "Analista dati marketing", azienda: "Lumen Analytics", paese: "Italia", citta: "Milano", modalita: "remoto", stato: "nessuna_risposta",
       conferma: "confermato", data_invio: g(-95), esito: "Nessuna notizia dopo due solleciti.", data_chiusura: g(-35), aggiornato: ieri(35) },
-    { id: 13, tipologia: "cpi", titolo: "Incontro di orientamento", azienda: "Centro per l'impiego (sede di esempio)", paese: "Italia", citta: "Pisa", modalita: "in_sede",
+    { id: 13, tipologia: "cpi", titolo: "Incontro di orientamento", azienda: "Centro per l'impiego (sede di esempio)", paese: "Italia", citta: "Bologna", modalita: "in_sede",
       stato: "chiusa", conferma: "confermato", data_invio: g(-80), esito: "Fatto il colloquio di orientamento, iscrizione aggiornata.", data_chiusura: g(-78), aggiornato: ieri(78) },
-    { id: 14, tipologia: "agenzia", titolo: "Impiegata amministrativa con Excel", azienda: "Agenzia Lavoro Facile", paese: "Italia", citta: "Pisa", modalita: "in_sede", stato: "rinunciata",
+    { id: 14, tipologia: "agenzia", titolo: "Impiegata amministrativa con Excel", azienda: "Agenzia Lavoro Facile", paese: "Italia", citta: "Bologna", modalita: "in_sede", stato: "rinunciata",
       conferma: "risposta", data_invio: g(-60), esito: "Ruolo troppo lontano dalle mie competenze.", data_chiusura: g(-55), aggiornato: ieri(55) },
   ];
   const azioni = [
