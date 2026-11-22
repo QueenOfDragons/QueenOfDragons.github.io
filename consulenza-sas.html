@@ -246,6 +246,7 @@ st["mesi_rit"] = ((fine.dt.year  - st["data_scadenza"].dt.year) * 12
           <li>Passo 6: la macro che ricalcola tutto su 12 mesi con INTNX e le date SAS che partono dal 1960</li>
           <li>Passo 7: il confronto riga per riga con PROC COMPARE e il collaudo in parallelo</li>
           <li>Passo 8: lo stesso lavoro su PySpark in cloud, dove l'ordine delle righe non è garantito e il ciclo DO va ripensato con le window function</li>
+          <li>Passo 9: e se il programma gira su SAS Viya con CAS? Thread paralleli, RETAIN e LAG che valgono per thread, FedSQL al posto di PROC SQL: numeri diversi prima ancora di arrivare a Python</li>
       </ul>
       <div class="sotto" aria-hidden="true">
 <pre class="codice">proc logistic data=campione;
