@@ -63,8 +63,14 @@ a { color: var(--accento); }
 header.barra { border-bottom: 1px solid var(--bordo); background: var(--carta); }
 header.barra .contenitore { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; gap: 8px; }
 header.barra .logo { font-weight: 700; text-decoration: none; color: var(--testo); font-size: 18px; }
-header.barra nav a { margin-left: 18px; text-decoration: none; color: var(--testo-tenue); }
+header.barra nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+header.barra nav a { text-decoration: none; color: var(--testo-tenue); }
 header.barra nav a:hover { color: var(--accento); }
+/* Pulsante per cambiare lingua (IT / EN) */
+header.barra nav a.lingua { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: .05em; color: var(--accento); border: 2px solid var(--accento); border-radius: 12px 9px 13px 8px; padding: 1px 9px; transform: rotate(-2deg); }
+header.barra nav a.lingua:hover { background: var(--accento-chiaro); }
+/* Traduzione del nome di un progetto, accanto al nome originale */
+.traduzione { font-weight: 400; color: var(--testo-tenue); font-size: .7em; }
 
 /* Apertura della pagina iniziale */
 .apertura { padding: 56px 0 32px; }
@@ -99,7 +105,7 @@ h2 { font-size: 26px; margin: 40px 0 16px; }
 
 /* Pagina di un progetto */
 .copertina { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 14px; margin: 12px 0 16px; }
-.progetto { padding: 40px 0 56px; }
+.progetto { padding-top: 40px; padding-bottom: 56px; }
 .progetto h1 { font-size: 36px; margin: 8px 0; }
 .progetto .sottotitolo { font-size: 19px; color: var(--testo-tenue); margin: 0 0 16px; }
 .progetto h2 { font-size: 22px; margin: 32px 0 8px; }
@@ -116,11 +122,14 @@ h2 { font-size: 26px; margin: 40px 0 16px; }
 .da-completare { background: #fff3a8; color: #3b3200; padding: 0 4px; border-radius: 4px; }
 .indietro { display: inline-block; margin-bottom: 8px; text-decoration: none; }
 
+/* Nota sul marchio registrato SAS */
+.marchio { font-size: 13px; color: var(--testo-tenue); margin-top: 40px; }
+
 footer { border-top: 1px solid var(--bordo); color: var(--testo-tenue); font-size: 14px; padding: 20px 0 32px; }
 
 @media (max-width: 600px) {
   .griglia { grid-template-columns: 1fr; }
   .apertura h1 { font-size: 30px; }
   .apertura p { font-size: 18px; }
-  header.barra nav a { margin-left: 0; margin-right: 14px; }
+  header.barra nav { gap: 6px 14px; }
 }

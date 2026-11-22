@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Io, in ordine (Me, in order)</title>
+  <link rel="alternate" hreflang="it" href="https://queenofdragons.github.io/progetti/sitopersonale.html">
+  <link rel="alternate" hreflang="en" href="https://queenofdragons.github.io/en/projects/sitopersonale.html">
+  <link rel="stylesheet" href="../../stile.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="contenitore">
+      <a class="logo" href="../index.html">Vittoria</a>
+      <nav>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About me</a>
+        <a href="../sas-consulting.html">SAS consulting</a>
+        <a class="lingua" href="../../progetti/sitopersonale.html" hreflang="it" lang="it" title="Versione italiana">IT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenitore progetto">
+    <a class="indietro" href="../index.html#projects">← All projects</a>
+    <div>
+      <span class="etichetta funzionante">In use</span>
+      <span class="etichetta prototipo">Demo to try</span>
+    </div>
+    <h1>Io, in ordine <span class="traduzione">(Me, in order)</span></h1>
+    <img class="copertina" src="../../immagini/sitopersonale.jpg" alt="">
+    <p class="sottotitolo">A personal organiser: everyday life arranged in sections, all in one place.</p>
+
+    <a class="pulsante" href="../../demo/io-in-ordine/index.html">Try the demo (in Italian)</a>
+
+    <p class="nota">The real program contains personal data and runs only on my computer. The demo is a demonstration version with made-up data: feel free to try it, whatever you do stays only in your browser. The demo interface is in Italian.</p>
+
+    <h2>What problem it solves</h2>
+    <p>Instead of lots of scattered Excel files, notes and reminders, everything is in one place, with a home page showing the sections and a monthly planner made of coloured notes, like Post-its.</p>
+
+    <h2>The sections</h2>
+    <ul>
+      <li><strong>BussolaLavoro (Job Compass):</strong> tracks the job search: applications with their status and a log of updates, interviews, text templates, documents, comparison between offers.</li>
+      <li><strong>Gestione spese (Expenses):</strong> expenses, deadlines and instalments, invoices to collect, budget, summary for the accountant; it imports Italian electronic invoices automatically.</li>
+      <li><strong>Benessere (Wellbeing):</strong> habits with "gentle goals", mood diary, exercise, medicines with stock levels, reminders for medical appointments.</li>
+      <li><strong>Formazione (Learning):</strong> courses and certifications in a numbered path, study hours with a stopwatch, skills map, ready-made text for the CV in Italian and English.</li>
+    </ul>
+
+    <h2>Strengths</h2>
+    <ul>
+      <li>New sections can be added without touching the rest: the home page finds them on its own.</li>
+      <li>Every section exports to Excel and PDF; one-click backup.</li>
+      <li>No online account and no paid services.</li>
+      <li>Calm colours and no endless pages to scroll.</li>
+    </ul>
+
+    <h2>Technologies</h2>
+    <p>Python (a small server, with no libraries to install), pages in HTML, CSS and JavaScript, a single SQLite database (one file holding all the data). Reading electronic invoices and creating Excel files are written from scratch.</p>
+
+    <h2>My role</h2>
+    <p>I decided what each section has to do and how it should look. The code was written with the help of Claude.</p>
+  </main>
+
+  <footer>
+    <div class="contenitore">Vittoria</div>
+  </footer>
+</body>
+</html>

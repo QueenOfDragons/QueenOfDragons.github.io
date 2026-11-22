@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgoraWord</title>
+  <link rel="alternate" hreflang="it" href="https://queenofdragons.github.io/progetti/agoraword.html">
+  <link rel="alternate" hreflang="en" href="https://queenofdragons.github.io/en/projects/agoraword.html">
+  <link rel="stylesheet" href="../../stile.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="contenitore">
+      <a class="logo" href="../index.html">Vittoria</a>
+      <nav>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About me</a>
+        <a href="../sas-consulting.html">SAS consulting</a>
+        <a class="lingua" href="../../progetti/agoraword.html" hreflang="it" lang="it" title="Versione italiana">IT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenitore progetto">
+    <a class="indietro" href="../index.html#projects">← All projects</a>
+    <div>
+      <span class="etichetta funzionante">In use</span>
+      <span class="etichetta lavorazione">Web version in progress</span>
+    </div>
+    <h1>AgoraWord</h1>
+    <img class="copertina" src="../../immagini/agoraword.jpg" alt="">
+    <p class="sottotitolo">Word and logic games for live social streams, where the audience plays by typing in the chat.</p>
+
+    <h2>What problem it solves</h2>
+    <p>People who stream live on social media need to keep their audience engaged. AgoraWord turns the stream into a game: viewers type their answers in the chat and the program recognises who guessed right and awards points in real time.</p>
+
+    <h2>Who it's for</h2>
+    <p>Content creators who stream live. It was created for my own streams as ElleVee and is genuinely in use, with an audience that keeps coming back to play.</p>
+
+    <h2>What it does</h2>
+    <p>About fifteen games, including:</p>
+    <ul>
+      <li>Hint Game (guess the word from the clues), Hangman, Secret word, Mastermind</li>
+      <li>Flags, Country shapes, Map</li>
+      <li>Word chain, Word ladder, Decode, Impossible definition</li>
+      <li>True or false, Guess the number, Emoji rebus</li>
+    </ul>
+    <p>To engage the audience: overall leaderboard, tournament mode and competition by match days, badges for the winners (for example the "champion" of the week with a dedicated graphic theme), thank-yous to donors, animated scenes. Interface in four languages.</p>
+
+    <h2>How it works, in short</h2>
+    <p>It's a Windows program that installs with one click. Inside there's a small server that receives the messages from the live stream chat. The game content (words, clues, sentences) is loaded from Excel files.</p>
+
+    <h2>Coming soon: AgoraWord Web</h2>
+    <p>A version to play in the browser, with nothing to install. The first game is Hint Game, in a single-player version, with its own graphic style: a puzzle-solver's notebook, with coloured sticky notes, notes taped on with sticky tape, and rubber stamps.</p>
+
+    <h2>Technologies</h2>
+    <p>React (to build the interface), Vite (prepares the code), Electron (turns the website into an installable program), Express (the small built-in server), Framer Motion (animations). For the web version also TypeScript and Phaser (a game library).</p>
+
+    <h2>My role</h2>
+    <p>I conceived all the games. The code was written under my direction with the help of ChatGPT and Claude.</p>
+  </main>
+
+  <footer>
+    <div class="contenitore">Vittoria</div>
+  </footer>
+</body>
+</html>

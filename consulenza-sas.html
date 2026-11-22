@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulenza SAS</title>
+  <meta name="description" content="Consulenza SAS di Vittoria: sviluppo, analisi dei dati, GIS, formazione. E un esempio reale di cosa succede quando un programma SAS bancario viene portato in Python.">
+  <link rel="alternate" hreflang="it" href="https://queenofdragons.github.io/consulenza-sas.html">
+  <link rel="alternate" hreflang="en" href="https://queenofdragons.github.io/en/sas-consulting.html">
+  <link rel="stylesheet" href="stile.css">
+  <link rel="stylesheet" href="sas.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="contenitore">
+      <a class="logo" href="index.html">Vittoria</a>
+      <nav>
+        <a href="index.html#progetti">Progetti</a>
+        <a href="chi-sono.html">Chi sono</a>
+        <a href="consulenza-sas.html">Consulenza SAS</a>
+        <a class="lingua" href="en/sas-consulting.html" hreflang="en" lang="en" title="English version">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenitore progetto">
+    <h1>Consulenza <span class="storto">SAS</span></h1>
+    <img class="copertina" src="immagini/consulenza-sas.jpg" alt="Una civetta con la lente trova l'errore nascosto su un ponte di dati, mentre un robottino si gratta la testa">
+    <p class="sottotitolo">Oltre 30 anni di SAS® in banche, servizi finanziari e assicurazioni. E l'esperienza per sapere dove si rompono i numeri quando quei programmi vengono portati in Python.</p>
+
+    <h2>Cosa faccio con SAS</h2>
+    <ul class="competenze">
+      <li><strong>Sviluppo</strong>Procedure e applicazioni con SAS e tutte le sue componenti, non solo analisi.</li>
+      <li><strong>Analisi dei dati</strong>Dai dati grezzi ai numeri su cui si prendono decisioni.</li>
+      <li><strong>Data Warehouse e qualità dei dati</strong>Grandi archivi aziendali, controlli, quadrature.</li>
+      <li><strong>GIS</strong>Dati collegati a mappe e territorio.</li>
+      <li><strong>Formazione</strong>Docente SAS certificata dal 1992, corsi in italiano, inglese e francese.</li>
+      <li><strong>Migrazione verso Python</strong>Portare i programmi SAS in Python senza perdere un centesimo per strada.</li>
+    </ul>
+
+    <h2>Da SAS a Python: perché non basta "tradurre"</h2>
+    <p>Molte aziende stanno spostando i loro programmi SAS su Python, spesso facendoli tradurre in automatico, anche con l'intelligenza artificiale. Il codice che esce è pulito, gira senza errori... e dà numeri diversi. Nessun avviso, nessun messaggio rosso: semplicemente, in fondo al report, i conti non tornano più.</p>
+    <p>Succede perché SAS fa tante cose "da solo", in silenzio, e chi traduce riga per riga non le vede. Qui sotto c'è un esempio. Il programma e i dati sono inventati, ma i comportamenti di SAS e di pandas (la libreria Python più usata per lavorare con le tabelle) sono quelli reali.</p>
+
+    <h2>Il caso: ritardi di pagamento in una banca</h2>
+    <p>Una banca ha tre tabelle: le <strong>rate</strong> dei prestiti (quanto e quando si deve pagare), i <strong>pagamenti</strong> effettivamente arrivati e una tabella di lookup con il <strong>segmento</strong> del cliente (RETAIL, SME, large corporate...). Una rata può essere pagata in più volte, oppure non essere pagata affatto. Per ogni rata vogliamo sapere quanto resta da pagare, il ritardo massimo accumulato dal prestito, i mesi di scaduto di ogni rata e da quanti mesi di fila il cliente non paga. Sono i mattoni su cui poi si costruiscono esposizione, default e PD (probabilità di default).</p>
+
+    <div class="due-tabelle">
+      <div>
+        <div class="tabella-scorre">
+          <table class="dati">
+            <tr><th colspan="4">RATE</th></tr>
+            <tr><th>prestito</th><th>rata</th><th>scadenza</th><th>residuo</th></tr>
+            <tr><td>1001</td><td>1</td><td>31JUL2026</td><td>500</td></tr>
+            <tr><td>1001</td><td>2</td><td>31AUG2026</td><td>500</td></tr>
+            <tr><td>1001</td><td>3</td><td>30SEP2026</td><td>500</td></tr>
+            <tr><td>1001</td><td>4</td><td>31OCT2026</td><td>500</td></tr>
+            <tr><td>1002</td><td>1</td><td>31AUG2026</td><td>300</td></tr>
+            <tr><td>1002</td><td>2</td><td>30SEP2026</td><td>300</td></tr>
+            <tr><td>1002</td><td>3</td><td>31OCT2026</td><td>300</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="tabella-scorre">
+          <table class="dati">
+            <tr><th colspan="4">PAGAMENTI</th></tr>
+            <tr><th>prestito</th><th>rata</th><th>data</th><th>importo</th></tr>
+            <tr><td>1001</td><td>1</td><td>30JUL2026</td><td>500</td></tr>
+            <tr><td>1001</td><td>2</td><td>10SEP2026</td><td>200</td></tr>
+            <tr><td>1001</td><td>2</td><td>25SEP2026</td><td>300</td></tr>
+            <tr><td>1001</td><td>4</td><td>31OCT2026</td><td>500</td></tr>
+            <tr><td>1002</td><td>1</td><td>31AUG2026</td><td>300</td></tr>
+          </table>
+        </div>
+        <p class="didascalia">La rata 2 del prestito 1001 è pagata in due volte. La rata 3 del 1001 e le rate 2 e 3 del 1002 non sono pagate.</p>
+      </div>
+      <div>
+        <div class="tabella-scorre">
+          <table class="dati">
+            <tr><th colspan="2">SEGMENTI</th></tr>
+            <tr><th>prestito</th><th>segmento</th></tr>
+            <tr><td>1001</td><td>RETAIL</td></tr>
+            <tr><td>1002</td><td>RETAIL</td></tr>
+            <tr><td>1002</td><td>SME</td></tr>
+          </table>
+        </div>
+        <p class="didascalia">Tabella di lookup. Il prestito 1002 è stato riclassificato da RETAIL a SME (piccole e medie imprese): la riga più recente è l'ultima.</p>
+      </div>
+    </div>
+
+    <h2>Passo 1: unire rate e pagamenti</h2>
+    <div class="coppia">
+      <div>
+        <span class="linguaggio">SAS</span>
+<pre class="codice"><span class="c">/* Data di riferimento: fine del mese precedente */</span>
+%let data_rif = %sysfunc(intnx(month, %sysfunc(today()), -1, E));
+<span class="c">/* nell'esempio: 31OCT2026 */</span>
+
+data work.rate_pag (keep=id_prestito n_rata data_scadenza
+                         data_pagamento importo_pagato residuo);
+  merge dwh.rate      (in=in_rata
+                       where=(data_scadenza  &lt;= &amp;data_rif))
+        dwh.pagamenti (where=(data_pagamento &lt;= &amp;data_rif));
+  by id_prestito n_rata;
+  if in_rata;
+  <span class="c">/* residuo progressivo sui pagamenti parziali */</span>
+  <mark>residuo = sum(residuo, -importo_pagato);</mark>
+  format residuo commax12.2;
+run;</pre>
+      </div>
+      <div>
+        <span class="linguaggio sbagliato">Python, traduzione "a macchina"</span>
+<pre class="codice">chiavi = ["id_prestito", "n_rata"]
+df = rate.merge(pagamenti, how="left",
+                on=chiavi)
+df["importo_pagato"] = (
+    df["importo_pagato"].fillna(0))
+<mark>df["residuo"] = (df["residuo"]
+                 - df["importo_pagato"])</mark></pre>
+      </div>
+    </div>
+
+    <div class="trappola">
+      <h3>Trappola 1: il MERGE uno-a-molti "ricorda"</h3>
+      <p>Il residuo progressivo qui è voluto, ed è un modo elegante di ottenerlo in SAS. Nel MERGE con BY, quando una rata ha due pagamenti, SAS legge la riga della rata <em>una volta sola</em>: sulla seconda riga le variabili che vengono da RATE restano nel PDV (l'area di lavoro del passo DATA) con il valore <em>già modificato</em> alla riga prima. Così <code>residuo</code> scala da solo: 500 − 200 = 300, poi 300 − 300 = 0.</p>
+      <p>Chi traduce vede solo una sottrazione. Il <code>merge</code> di pandas copia il valore originale su ogni riga: 500 − 200 = 300, poi 500 − 300 = <strong>200</strong>. La rata risulta ancora insoluta anche se è stata pagata tutta.</p>
+    </div>
+
+    <span class="linguaggio giusto">Python, versione fedele a SAS</span>
+<pre class="codice">pagamenti = pagamenti.sort_values(chiavi, kind="stable")   <span class="c"># stesso ordine del BY di SAS</span>
+df = rate.merge(pagamenti, how="left", on=chiavi)
+df["importo_pagato"] = df["importo_pagato"].fillna(0)
+df["residuo"] = df["residuo"] - df.groupby(chiavi)["importo_pagato"].cumsum()</pre>
+
+    <h2>Passo 2: la storia di ogni prestito</h2>
+    <div class="coppia">
+      <div>
+        <span class="linguaggio">SAS</span>
+<pre class="codice"><span class="c">/* ciclo DO: un'iterazione del passo DATA per prestito */</span>
+data work.storia;
+  if 0 then set dwh.segmenti(keep=id_prestito segmento);
+  if _n_ = 1 then do;
+    <span class="c">/* lookup del segmento cliente, caricato una volta */</span>
+    <span class="c">/* l'ultimo caricato vince */</span>
+    <mark>declare hash seg(dataset:'dwh.segmenti',
+                     duplicate:'r');</mark>
+    seg.defineKey('id_prestito');
+    seg.defineData('segmento');
+    seg.defineDone();
+  end;
+  do until (last.id_prestito);
+    set work.rate_pag;
+    by id_prestito n_rata;
+    if first.id_prestito then do;
+      <span class="c">/* find fallito: il valore NON si azzera */</span>
+      if seg.find() ne 0 then segmento = 'ND';
+    end;
+    if last.n_rata then do;
+      giorni_rit  = intck('day', data_scadenza,
+                          data_pagamento);
+      <mark>rit_max     = max(rit_max, giorni_rit);</mark>
+      <mark>mesi_rit    = intck('month', data_scadenza,
+                    coalesce(data_pagamento, &amp;data_rif));</mark>
+      insoluta    = (residuo &gt; 0.005);
+      mesi_consec = ifn(insoluta, sum(mesi_consec, 1), 0);
+      output;
+    end;
+  end;
+  label rit_max     = 'Ritardo massimo (giorni)'
+        mesi_rit    = 'Mesi di scaduto'
+        mesi_consec = 'Mesi consecutivi di insoluto';
+run;</pre>
+      </div>
+      <div>
+        <span class="linguaggio sbagliato">Python, traduzione "a macchina"</span>
+<pre class="codice">st = df.drop_duplicates(chiavi,
+                        keep="last").copy()
+<mark>st = st.merge(segmenti, how="left",
+              on="id_prestito")</mark>
+g = st["id_prestito"]
+st["giorni_rit"] = (st["data_pagamento"]
+                    - st["data_scadenza"]).dt.days
+<mark>st["rit_max"] = (st.groupby(g)["giorni_rit"]
+                 .cummax())</mark>
+fine = st["data_pagamento"].fillna(data_rif)
+<mark>st["mesi_rit"] = ((fine - st["data_scadenza"])
+                  .dt.days // 30)</mark>
+ins = st["residuo"] &gt; 0.005
+blocco = (~ins).groupby(g).cumsum()
+st["mesi_consec"] = (ins.astype(int)
+                     .groupby([g, blocco])
+                     .cumsum())</pre>
+      </div>
+    </div>
+
+    <div class="trappola">
+      <h3>Trappola 2: il ciclo DO e i valori mancanti</h3>
+      <p>Nel ciclo DO il passo DATA gira una volta per prestito: le variabili calcolate tornano a missing all'inizio di ogni prestito senza bisogno di RETAIN né di FIRST., e dentro il ciclo si accumulano. La funzione MAX poi ignora i missing: per una rata non pagata il ritardo massimo resta quello di prima.</p>
+      <p>Il <code>cummax</code> di pandas invece lascia NaN (il valore mancante di Python) proprio su quella riga, e se è l'ultima del prestito il ritardo massimo sparisce dal report. Con il <code>max()</code> di Python riga per riga va anche peggio: <code>max(nan, -1)</code> restituisce <code>nan</code>, <code>max(-1, nan)</code> restituisce <code>-1</code>. Il risultato dipende dall'ordine degli argomenti.</p>
+    </div>
+
+    <div class="trappola">
+      <h3>Trappola 3: INTCK non conta i giorni</h3>
+      <p><code>intck('month', ...)</code> conta quante volte si passa un confine di mese, non quanti mesi "pieni" sono trascorsi: dal 31 agosto al 25 settembre fa 1. È esattamente la logica delle fasce di scaduto per mese di competenza.</p>
+      <p>La traduzione più comune, giorni diviso 30, dà 0. E con un pagamento in anticipo di un giorno va peggio: in Python <code>-1 // 30</code> fa <strong>-1</strong>, perché la divisione intera arrotonda verso il basso, mentre SAS dà 0. Un mese di scaduto negativo, senza nessun errore.</p>
+    </div>
+
+    <div class="trappola">
+      <h3>Trappola 4: la tabella di lookup con chiavi doppie</h3>
+      <p>L'oggetto hash carica SEGMENTI in memoria una volta sola e con <code>duplicate:'r'</code> tiene l'ultima riga per chiave: il prestito 1002 è SME. Attenzione anche al <code>find()</code>: se la chiave non c'è, il valore resta quello del prestito precedente, perché le variabili lette con SET non si azzerano. Per questo il ramo 'ND' non è un vezzo.</p>
+      <p>Il <code>merge</code> di pandas invece abbina il 1002 a <em>tutte e due</em> le righe: le sue rate raddoppiano, da 3 a 6, e con loro l'esposizione che verrà sommata dopo. Nessun errore, a meno di chiedere a pandas di controllare con <code>validate</code>.</p>
+    </div>
+
+    <h3>Il risultato, fianco a fianco</h3>
+    <div class="tabella-scorre">
+      <table class="dati">
+        <tr><th rowspan="2">prestito</th><th rowspan="2">rata</th><th colspan="5" class="gruppo-sas">SAS</th><th colspan="5" class="gruppo-py">Python "a macchina"</th></tr>
+        <tr><th>segmento</th><th>residuo</th><th>rit_max</th><th>mesi_rit</th><th>mesi_consec</th><th>segmento</th><th>residuo</th><th>rit_max</th><th>mesi_rit</th><th>mesi_consec</th></tr>
+        <tr><td>1001</td><td>1</td><td>RETAIL</td><td>0</td><td>-1</td><td>0</td><td>0</td><td>RETAIL</td><td>0</td><td>-1</td><td class="diverso">-1</td><td>0</td></tr>
+        <tr><td>1001</td><td>2</td><td>RETAIL</td><td>0</td><td>25</td><td>1</td><td>0</td><td>RETAIL</td><td class="diverso">200</td><td>25</td><td class="diverso">0</td><td class="diverso">1</td></tr>
+        <tr><td>1001</td><td>3</td><td>RETAIL</td><td>500</td><td>25</td><td>1</td><td>1</td><td>RETAIL</td><td>500</td><td class="diverso">NaN</td><td>1</td><td class="diverso">2</td></tr>
+        <tr><td>1001</td><td>4</td><td>RETAIL</td><td>0</td><td>25</td><td>0</td><td>0</td><td>RETAIL</td><td>0</td><td>25</td><td>0</td><td>0</td></tr>
+        <tr><td>1002</td><td>1</td><td>SME</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="diverso">×2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1002</td><td>2</td><td>SME</td><td>300</td><td>0</td><td>1</td><td>1</td><td class="diverso">×2</td><td>300</td><td class="diverso">NaN</td><td>1</td><td>1</td></tr>
+        <tr><td>1002</td><td>3</td><td>SME</td><td>300</td><td>0</td><td>0</td><td>2</td><td class="diverso">×2</td><td>300</td><td class="diverso">NaN</td><td>0</td><td>2</td></tr>
+      </table>
+    </div>
+    <p class="didascalia">Su 7 righe, 6 sono diverse, e in Python le righe del prestito 1002 sono il doppio. Nessun errore, nessun avviso: il programma Python gira tranquillo. E siamo solo a due passi.</p>
+
+    <span class="linguaggio giusto">Python, versione fedele a SAS (un pezzo)</span>
+<pre class="codice">seg = segmenti.drop_duplicates("id_prestito", keep="last")        <span class="c"># duplicate:'r' dell'hash</span>
+st = st.merge(seg, how="left", on="id_prestito", validate="many_to_one")
+st["segmento"] = st["segmento"].fillna("ND")
+st["rit_max"] = (st.groupby(g)["giorni_rit"].cummax()
+                 .groupby(g).ffill())                  <span class="c"># MAX di SAS: i mancanti non contano</span>
+st["mesi_rit"] = ((fine.dt.year  - st["data_scadenza"].dt.year) * 12
+                  + (fine.dt.month - st["data_scadenza"].dt.month))   <span class="c"># INTCK 'month' conta i confini di mese</span></pre>
+
+    <div class="nascosto">
+      <h2>Poi arriva la parte che conta davvero</h2>
+      <ul class="passi-nascosti">
+          <li>Passo 3: l'esposizione al momento del default (EAD), con capitale residuo, rate scadute e interessi di mora</li>
+          <li>Passo 4: il default a 90 giorni di scaduto continuativo, con le soglie di rilevanza assoluta e relativa</li>
+          <li>Passo 5: la PD con PROC LOGISTIC, che di default stima la probabilità dell'evento "sbagliato" e codifica le variabili CLASS in un modo che statsmodels non usa</li>
+          <li>Passo 6: la macro che ricalcola tutto su 12 mesi con INTNX e le date SAS che partono dal 1960</li>
+          <li>Passo 7: il confronto riga per riga con PROC COMPARE e il collaudo in parallelo</li>
+          <li>Passo 8: lo stesso lavoro su PySpark in cloud, dove l'ordine delle righe non è garantito e il ciclo DO va ripensato con le window function</li>
+      </ul>
+      <div class="sotto" aria-hidden="true">
+<pre class="codice">proc logistic data=campione;
+  class classe_rating settore;
+  model default_12m = rit_max mesi_consec ead_rel classe_rating settore;
+  output out=pd_stimata p=pd;
+run;
+
+proc compare base=prod.storia compare=py.storia
+             out=differenze outnoequal;
+  id id_prestito n_rata;
+run;</pre>
+      </div>
+      <div class="strappo">
+        <p class="grande">Qui l'esempio si interrompe.</p>
+        <p>Se vuoi saperne di più o ti serve supporto nella tua attività, contattami.</p>
+        <a class="pulsante" href="mailto:vittorial@gmail.com?subject=Consulenza%20SAS">Scrivimi una email</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="contenitore">Vittoria</div>
+  </footer>
+</body>
+</html>

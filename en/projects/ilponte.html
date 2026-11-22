@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Il Ponte (The Bridge)</title>
+  <link rel="alternate" hreflang="it" href="https://queenofdragons.github.io/progetti/ilponte.html">
+  <link rel="alternate" hreflang="en" href="https://queenofdragons.github.io/en/projects/ilponte.html">
+  <link rel="stylesheet" href="../../stile.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="contenitore">
+      <a class="logo" href="../index.html">Vittoria</a>
+      <nav>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About me</a>
+        <a href="../sas-consulting.html">SAS consulting</a>
+        <a class="lingua" href="../../progetti/ilponte.html" hreflang="it" lang="it" title="Versione italiana">IT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenitore progetto">
+    <a class="indietro" href="../index.html#projects">← All projects</a>
+    <div><span class="etichetta funzionante">In use</span></div>
+    <h1>Il Ponte <span class="traduzione">(The Bridge)</span></h1>
+    <img class="copertina" src="../../immagini/ilponte.jpg" alt="The hedgehog, mascot of the game">
+    <p class="sottotitolo">A team game for live social streams: the whole chat helps a hedgehog cross a bridge that is collapsing behind it.</p>
+
+    <h2>What problem it solves</h2>
+    <p>During a live stream you need a game that gets everyone involved together, makes people laugh and asks little of the host. Il Ponte picks the words, keeps time, says thank you and starts again on its own: the host just comments and cheers.</p>
+
+    <h2>How to play</h2>
+    <ul>
+      <li>Viewers guess words by typing in the chat: every word guessed builds new planks in front of the hedgehog.</li>
+      <li>Behind it the bridge collapses one plank at a time. The game ends when the collapse reaches the hedgehog.</li>
+      <li>By tapping the screen (the "taps") the audience fills a bar that gives props to stop the collapse at the right moment.</li>
+      <li>Gifts protect the hedgehog with bubbles and little umbrellas, but they are never essential: it's the words that carry it to the other side.</li>
+      <li>Nobody wins against the others: there's a record distance in metres to beat, all together.</li>
+    </ul>
+
+    <h2>The most interesting ideas</h2>
+    <ul>
+      <li><strong>The game adapts to the audience:</strong> the collapse speed follows the pace at which the chat guesses, so it works with many viewers as well as with few.</li>
+      <li><strong>Gifts without guilt:</strong> no messages like "if you don't donate, it falls". Each gift has a precise, announced effect, no surprise draws.</li>
+      <li><strong>A mascot with emotions:</strong> the hedgehog changes expression depending on the danger (calm, worried, scared) and falls rolling up into a ball, moments made to be shared.</li>
+    </ul>
+
+    <h2>The hedgehog and its emotions</h2>
+    <div class="pose">
+      <figure><img src="../../immagini/riccio-tranquillo.png" alt="Calm hedgehog"><figcaption>Calm</figcaption></figure>
+      <figure><img src="../../immagini/riccio-saluta.png" alt="Hedgehog waving"><figcaption>Greets newcomers</figcaption></figure>
+      <figure><img src="../../immagini/riccio-palla.png" alt="Hedgehog rolled up into a ball"><figcaption>Rolled up, when it falls</figcaption></figure>
+    </div>
+
+    <h2>How it's made</h2>
+    <p>A computer program that opens with a double click, like AgoraWord, and receives the messages from the live stream chat. The animated scene is built with Phaser (a game engine that runs in the browser). The program is split into three separate parts: the game rules, the graphics and the connection to the live stream. The images of the hedgehog and the scene were generated with the help of ChatGPT.</p>
+
+    <h2>My role</h2>
+    <p>I conceived the game and its rules. The code is written with the help of Claude.</p>
+
+    <h2>Status</h2>
+    <p>In use in my live social streams.</p>
+  </main>
+
+  <footer>
+    <div class="contenitore">Vittoria</div>
+  </footer>
+</body>
+</html>

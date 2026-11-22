@@ -1,0 +1,96 @@
+/* Grafica della pagina "Consulenza SAS" (si aggiunge a stile.css) */
+:root {
+  --codice-sfondo: #f3efe7;
+  --codice-testo: #2b2a33;
+  --commento: #7b7569;
+  --trappola: #c2410c;
+  --trappola-chiaro: #fde9dc;
+  --giallo-nota: #fff4b8;
+  --giallo-testo: #3b3200;
+  --diverso: #fbd5d5;
+  --diverso-testo: #8a1c1c;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --codice-sfondo: #2d2b35;
+    --codice-testo: #ecebf2;
+    --commento: #9d98a8;
+    --trappola: #fb923c;
+    --trappola-chiaro: #3f2615;
+    --giallo-nota: #4a4220;
+    --giallo-testo: #fff4b8;
+    --diverso: #4a1f1f;
+    --diverso-testo: #ffb4b4;
+  }
+}
+:root[data-theme="dark"] {
+    --codice-sfondo: #2d2b35;
+    --codice-testo: #ecebf2;
+    --commento: #9d98a8;
+    --trappola: #fb923c;
+    --trappola-chiaro: #3f2615;
+    --giallo-nota: #4a4220;
+    --giallo-testo: #fff4b8;
+    --diverso: #4a1f1f;
+    --diverso-testo: #ffb4b4;
+}
+
+/* Sottolineatura un po' storta, fatta "a mano" */
+.storto { background-image: linear-gradient(transparent 62%, var(--accento-chiaro) 62%, var(--accento-chiaro) 88%, transparent 88%); padding: 0 3px; display: inline; transform: rotate(-1deg); }
+
+.competenze { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 12px 0 8px; padding: 0; list-style: none; }
+.competenze li { background: var(--carta); border: 1px solid var(--bordo); border-radius: 14px 10px 16px 9px; padding: 12px 16px; }
+.competenze li:nth-child(odd) { transform: rotate(-.4deg); }
+.competenze li:nth-child(even) { transform: rotate(.5deg); }
+.competenze strong { display: block; color: var(--accento); }
+
+/* Blocchi di codice */
+.coppia { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: 14px; margin: 12px 0; }
+.coppia > div { min-width: 0; }
+.linguaggio { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--testo-tenue); margin: 0 0 4px 4px; }
+.linguaggio.sbagliato { color: var(--trappola); }
+.linguaggio.giusto { color: var(--verde); }
+pre.codice { background: var(--codice-sfondo); color: var(--codice-testo); border: 1px solid var(--bordo); border-radius: 10px 14px 9px 12px; padding: 12px 14px; overflow-x: auto; font-family: Consolas, "Cascadia Mono", Menlo, monospace; font-size: 12.5px; line-height: 1.5; margin: 0; }
+pre.codice .c { color: var(--commento); font-style: italic; }
+pre.codice mark { background: var(--trappola-chiaro); color: inherit; border-bottom: 2px dashed var(--trappola); padding: 0 2px; }
+
+/* Bigliettino "Trappola" */
+.trappola { position: relative; background: var(--giallo-nota); color: var(--giallo-testo); border-radius: 3px 12px 4px 10px; padding: 14px 18px 12px; margin: 18px 6px 22px; transform: rotate(-.6deg); box-shadow: 2px 4px 10px rgba(0,0,0,.08); }
+.trappola:nth-of-type(even) { transform: rotate(.5deg); }
+.trappola h3 { margin: 0 0 6px; font-size: 18px; }
+.trappola h3::before { content: "⚠ "; color: var(--trappola); }
+.trappola p { margin: 6px 0; }
+.trappola code, .progetto p code, .progetto li code { font-family: Consolas, Menlo, monospace; font-size: .92em; background: rgba(127,127,127,.15); padding: 0 4px; border-radius: 4px; }
+
+/* Tabelle di dati */
+.tabella-scorre { overflow-x: auto; margin: 10px 0 6px; }
+table.dati { border-collapse: collapse; font-size: 14px; background: var(--carta); }
+table.dati th, table.dati td { border: 1px solid var(--bordo); padding: 4px 9px; text-align: right; white-space: nowrap; font-family: Consolas, Menlo, monospace; }
+table.dati th { font-family: inherit; background: var(--accento-chiaro); text-align: center; }
+table.dati td.diverso { background: var(--diverso); color: var(--diverso-testo); font-weight: 700; }
+table.dati th.gruppo-sas { background: var(--blu-chiaro); color: var(--blu); }
+table.dati th.gruppo-py { background: var(--trappola-chiaro); color: var(--trappola); }
+.didascalia { font-size: 14px; color: var(--testo-tenue); margin: 2px 0 16px; }
+.due-tabelle { display: flex; gap: 18px; flex-wrap: wrap; }
+.due-tabelle > div { min-width: 0; flex: 0 1 auto; }
+
+/* La parte "strappata" */
+.nascosto { position: relative; margin-top: 30px; }
+.nascosto .sotto { filter: blur(3.5px); opacity: .6; pointer-events: none; user-select: none; }
+.passi-nascosti { list-style: none; padding: 0; margin: 0 0 12px; }
+.passi-nascosti li { padding: 8px 0 8px 34px; position: relative; color: var(--testo); }
+.passi-nascosti li::before { content: "🔒"; position: absolute; left: 0; top: 7px; }
+.strappo { position: relative; background: var(--carta); border: 2px solid var(--accento); padding: 30px 22px 26px; margin: -90px 4px 0; transform: rotate(-.8deg); box-shadow: 0 10px 30px rgba(0,0,0,.12); text-align: center;
+  clip-path: polygon(0 4%, 6% 0, 13% 3%, 21% 0, 29% 4%, 37% 1%, 45% 3%, 54% 0, 62% 4%, 70% 1%, 78% 3%, 86% 0, 94% 3%, 100% 1%, 100% 97%, 93% 100%, 85% 97%, 76% 100%, 68% 96%, 59% 100%, 50% 97%, 41% 100%, 33% 96%, 24% 100%, 15% 97%, 7% 100%, 0 96%); }
+.strappo p.grande { font-size: 21px; font-weight: 600; margin: 0 0 8px; }
+.strappo p { margin: 6px auto; max-width: 560px; }
+
+@media (max-width: 700px) {
+  .coppia, .competenze { grid-template-columns: 1fr; }
+  .strappo { margin-top: -60px; }
+}
+
+/* Margine laterale su telefono (stile.css lo azzera su .progetto) */
+main.progetto { padding-left: 16px; padding-right: 16px; }
+.progetto ul.competenze, .progetto ul.passi-nascosti { padding-left: 0; }
+.marchi { margin-top: 40px; font-size: 12.5px; }
